@@ -1,0 +1,31 @@
+# Stage 1: Build the Angular app
+# Use NodeJS as the base image
+FROM node:19.0-alpine3.16
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the Angular app to the container
+COPY /angularjs/portfolio .
+
+# Install the required dependencies
+RUN npm install
+
+# Build the Angular app
+RUN npm run build --omit=dev
+
+# Stage 2: Serve the Angular app with Nginx
+# Use Nginx as the base image
+FROM nginx:1.23.2
+
+# Copy the Nginx configuration file
+COPY /angularjs/portfolio/angularjs-nginx.conf /etc/nginx/nginx.conf
+
+# Copy the built app from the previous stage
+COPY --from=0 /app/dist/portfolio /usr/share/nginx/html
+
+# Expose port 80 to the host
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]

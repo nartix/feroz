@@ -5,9 +5,9 @@ on:
   #   branches: [refresh-ecr-token]
 
   # AWS ECR token expires every 12 hours
-  # Run this action every 10 hours to refresh the token
-  schedule:
-    - cron: '0 */5 * * *'
+  # Run this action every 5 hours to refresh the token
+  # schedule:
+  #   - cron: '0 */5 * * *'
   workflow_dispatch:
 
 jobs:

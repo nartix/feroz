@@ -8,7 +8,7 @@ Welcome to my portfolio project, showcased at [ferozfaiz.com](https://ferozfaz.c
 
 1. [**Data Structures And Algorithms**](https://github.com/nartix/feroz/tree/main/data-structures-and-algorithms)
 
-   - A curated collection of materials from a Data Structures and Algorithms course I completed. Includes lecture notes, practical code examples, and assignments, spanning basic to advanced topics.
+   - A curated collection of materials from a Data Structures and Algorithms course I completed. Includes lecture notes, practical code examples, and assignments.
 
 1. [**Angular**](https://github.com/nartix/feroz/tree/main/angularjs):
 
@@ -53,6 +53,6 @@ Welcome to my portfolio project, showcased at [ferozfaiz.com](https://ferozfaz.c
 1. Development
    - For my portfolio projects, I employed Docker containers in conjunction with Docker Compose for development and testing. Utilizing Docker containers simplifies the process of experimenting with various technology versions seamlessly. Additionally, I leveraged Git for efficient version control
 
-Feel free to explore each directory for a deeper understanding of my diverse skills and knowledge in software development. This portfolio is a testament to my commitment to quality, innovation, and continuous learning in the ever-evolving field of software development.
+Feel free to explore each directory. This portfolio is a testament to my commitment to quality, innovation, and continuous learning in the ever-evolving field of software development.
 
 Note: This repository does not include my resume. Please refer to my portfolio website, [ferozfaiz.com](https://ferozfaiz.com), to obtain it.

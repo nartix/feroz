@@ -12,19 +12,19 @@ Welcome to my portfolio project, showcased at [ferozfaiz.com](https://ferozfaz.c
 
 1. [**ReactJS**](https://github.com/nartix/feroz/tree/main/reactjs):
 
-   - This directory highlights my work with ReactJS 18.2 and Redux, showcasing my ability to create efficient and interactive web applications, and demonstrating my front-end development skills. Live version available at [reactjs.ferozfaiz.com](https://reactjs.ferozfaiz.com)
+   - This directory highlights my work with ReactJS 18.2 and Redux, showcasing my ability to create efficient and interactive web applications, and demonstrating my front-end development skills. A live version is available at [reactjs.ferozfaiz.com](https://reactjs.ferozfaiz.com)
 
 1. [**Angular**](https://github.com/nartix/feroz/tree/main/angularjs):
 
-   - This directory contains the developement codes of Angular 16.2, a structural framework for dynamic web apps. It showcases my proficiency in building responsive and interactive user interfaces. Live version available at [ferozfaiz.com](https://ferozfaiz.com)
+   - This directory contains the developement codes of Angular 16.2, a structural framework for dynamic web apps. It showcases my proficiency in building responsive and interactive user interfaces. A live version is available at [ferozfaiz.com](https://ferozfaiz.com)
 
 1. [**ExpressJS**](https://github.com/nartix/feroz/tree/main/expressjs):
 
-   - Focused on ExpressJS 4.18, a popular web application framework for Node.js, this directory illustrates my capabilities in building efficient, scalable server-side applications and RESTful APIs. Live version available at [expressjs.ferozfaiz.com](https://expressjs.ferozfaiz.com)
+   - Focused on ExpressJS 4.18, a popular web application framework for Node.js, this directory illustrates my capabilities in building efficient, scalable server-side applications and RESTful APIs. A live version is available at [expressjs.ferozfaiz.com](https://expressjs.ferozfaiz.com)
 
 1. [**Python And Django**](https://github.com/nartix/feroz/tree/main/python):
 
-   - Additionally, I expanded my knowledge by learning Django and successfully developed an API backend using the Django Rest Framework 3.14. This was designed to parallel the functionality of the existing ExpressJS API backend of ferozfaiz.com. Live version at [django.ferozfaiz.com](https://django.ferozfaiz.com)
+   - Additionally, I expanded my knowledge by learning Django and successfully developed an API backend using the Django Rest Framework 3.14. This was designed to parallel the functionality of the existing ExpressJS API backend of ferozfaiz.com. A live version is available at [django.ferozfaiz.com](https://django.ferozfaiz.com)
 
 1. [**Ansible-Kubernetes**](https://github.com/nartix/feroz/tree/main/ansible-kubernetes):
 

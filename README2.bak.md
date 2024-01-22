@@ -12,7 +12,7 @@ sudo docker-compose up -d --build reactjs-multi
 
 ### Stop and Remove a Single Docker Container
 
-To stop and remove a specific Docker container, use this command:
+To stop and remove a specific Docker container:
 
 ```bash
 docker-compose rm -s -v yourService

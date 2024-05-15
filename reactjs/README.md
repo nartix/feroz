@@ -2,7 +2,7 @@
 
 This website was built using ReactJS and Redux. It features 'About', 'CI/CD', and 'Employee CRUD' sections. For the backend API, ExpressJS was utilized.
 
-Live Demo: <a href='https://reactjs.ferozfaiz.com/'>reactjs.ferozfaiz.com</a>
+**Live Demo**: <a href='https://reactjs.ferozfaiz.com/'>reactjs.ferozfaiz.com</a>
 
 ### Tech Stack:
 

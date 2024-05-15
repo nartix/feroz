@@ -2,7 +2,7 @@
 
 This website was built using Angular. It features 'About', 'CI/CD', and 'Employee CRUD' sections. For the backend API, ExpressJS was utilized.
 
-Live Demo: <a href='https://angular.ferozfaiz.com/'>angular.ferozfaiz.com</a>
+**Live Demo**: <a href='https://angular.ferozfaiz.com/'>angular.ferozfaiz.com</a>
 
 ### Tech Stack:
 

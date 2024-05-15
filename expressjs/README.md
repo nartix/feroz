@@ -2,7 +2,7 @@
 
 This API was built using ExpressJS and utilizes PostgreSQL as its database. It is deployed on a Kubernetes cluster.
 
-Live Demo: <a href='https://expressjs.ferozfaiz.com/'>expressjs.ferozfaiz.com</a>
+**Live Demo**: <a href='https://expressjs.ferozfaiz.com/'>expressjs.ferozfaiz.com</a>
 
 ### Tech Stack:
 

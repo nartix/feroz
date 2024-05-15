@@ -1,0 +1,58 @@
+name: Refresh ECR token
+
+on:
+  # push:
+  #   branches: [refresh-ecr-token]
+
+  # AWS ECR token expires every 12 hours
+  # Run this action every 5 hours to refresh the token
+  # schedule:
+  #   - cron: '0 */5 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Get ECR Docker login credentials
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ECR_HOST_ADDRESS: ${{ secrets.AWS_ECR_HOST_ADDRESS }}
+        run: |
+          docker run --rm -t -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+          -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+          -e AWS_DEFAULT_REGION=us-east-2 amazon/aws-cli \
+          ecr get-login-password --region us-east-2 | \
+          docker login --username AWS --password-stdin $AWS_ECR_HOST_ADDRESS
+
+          cat ~/.docker/config.json > docker-config.json
+
+      - name: Delete old ECR Docker login token
+        # continue-on-error: true
+        run: |
+          docker run --rm -t --name kubectl -v ${PWD}/configs/sys-cluster/config:/.kube/config \
+          -v ${PWD}/docker-config.json:/.docker/config.json \
+          bitnami/kubectl:latest delete secret ecr-docker-login-token-from-action --ignore-not-found
+
+      - name: Update Kubernetes with refreshed ECR Docker login token
+        run: |
+          docker run --rm -t --name kubectl -v ${PWD}/configs/sys-cluster/config:/.kube/config \
+          -v ${PWD}/docker-config.json:/.docker/config.json \
+          bitnami/kubectl:latest create secret generic ecr-docker-login-token-from-action \
+          --from-file=.dockerconfigjson=/.docker/config.json \
+          --type=kubernetes.io/dockerconfigjson
+
+    # - name: Commit report
+    #   run: |
+    #     git config --global user.name 'nartix'
+    #     git config --global user.email 'nartix@gmail.com'
+    #     git add .
+    #     git commit -am "from github action"
+    #     git push

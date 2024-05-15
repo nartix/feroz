@@ -1,0 +1,13 @@
+---
+- name: RKE2 installer
+  hosts: kube_control_plane:kube_node
+  serial: 1
+  ignore_errors: yes
+  vars_files:
+    - ../../vault/vault_vars.yml
+
+  tasks:
+    - name: Setting role
+      include_role:
+        name: rke2
+        tasks_from: install-server-node-task

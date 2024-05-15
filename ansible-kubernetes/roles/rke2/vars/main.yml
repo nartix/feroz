@@ -1,0 +1,4 @@
+---
+# vars file for rke2
+server_ha_url: YOUR_SERVER_HA_URL_HERE
+server_ha_ip: YOUR_SERVER_HA_IP_HERE

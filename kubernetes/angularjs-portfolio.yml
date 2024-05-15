@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-angularjs
+  labels:
+    app: web-angularjs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web-angularjs
+  template:
+    metadata:
+      labels:
+        app: web-angularjs
+    spec:
+      imagePullSecrets:
+        - name: ecr-docker-login-token-from-action
+      containers:
+        - name: web-angularjs
+          image: dkr.ecr.us-east-2.amazonaws.com/portfolio-angularjs:934296018
+          imagePullPolicy: Always
+          ports:
+            - name: web-angularjs
+              containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-angularjs-clusterip
+spec:
+  type: ClusterIP
+  ports:
+    - targetPort: 80
+      port: 80
+  selector:
+    app: web-angularjs
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-angularjs-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  defaultBackend:
+    service:
+      name: web-angularjs-clusterip
+      port:
+        number: 80
+  tls:
+    - hosts:
+        - 'ferozfaiz.com'
+      secretName: ferozfaiz-com-cloudflare-tls
+  rules:
+    - host: ferozfaiz.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web-angularjs-clusterip
+                port:
+                  number: 80

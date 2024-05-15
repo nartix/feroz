@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-md navbar-light mb-4 border-bottom">
+  <div class="container-fluid">
+    <a routerLink="/" class="navbar-brand fw-bold fs-3 text-secondary">
+      Feroz's Portfolio
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav fs-5 ms-auto">
+        <li class="nav-item mx-2">
+          <a routerLink="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a routerLink="/about" class="nav-link">About</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a routerLink="/ci-cd" class="nav-link">CI/CD</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a routerLink="/crud" class="nav-link">CRUD</a>
+        </li>
+        <li class="nav-item dropdown mx-2">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >{{ angularjs }}</a
+          >
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ DJANGO5_URL }}">{{ django5 }}</a>
+            <a class="dropdown-item" href="{{ REACTJS_URL }}">{{ reactjs }}</a>
+            <a class="dropdown-item" href="{{ EXPRESSJS_URL }}"
+              >API {{ expressjs }}</a
+            >
+            <a class="dropdown-item" href="{{ DJANGO_URL }}">{{
+              django_rest_framework
+            }}</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

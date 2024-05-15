@@ -1,0 +1,139 @@
+# - debug: var=result.stdout_lines
+# - debug: msg="{{ kube_control_node_token }}"
+#- debug: var="{{ hostvars['vps2_new_york']['ansible_default_ipv4']['address'] }}"
+
+- name: Collect node token from first rke2 server node
+  become: true
+  shell: |
+          cat /var/lib/rancher/rke2/server/node-token
+  register: token_result
+  delegate_to: "{{ groups['kube_control_plane'][0] }}"
+  when: groups['kube_control_plane'][0] != inventory_hostname
+
+- name: Set kube_control_node_token
+  set_fact:
+    kube_control_node_token: "{{ token_result.stdout }}"
+  when: token_result.stdout is defined
+
+- name: Create config directory
+  become: true
+  shell: "mkdir -p /etc/rancher/rke2"
+
+- name: Create first server node config file
+  become: true
+  shell: |
+          cat > /etc/rancher/rke2/config.yaml <<EOF
+          tls-san:
+            - {{ server_ha_url[8:-5] }}
+            - k8s.iamdb.net
+          EOF
+#          node-taint:
+#            - "CriticalAddonsOnly=true:NoExecute"
+  when: groups['kube_control_plane'][0] == inventory_hostname
+
+- name: Create server node config file
+  become: true
+  shell: |
+          cat > /etc/rancher/rke2/config.yaml <<EOF
+          server: {{ server_ha_url }}
+          token: {{ kube_control_node_token }}
+          tls-san:
+            - {{ server_ha_url[8:-5] }}
+          EOF
+#            - {{ server_ha_url[:-5] }}
+  # args:
+  #   chdir: /home/feroz
+    # executable: /bin/bash
+  when: inventory_hostname in groups['kube_control_plane'] and groups['kube_control_plane'][0] != inventory_hostname
+
+# - name: "Add HA RKE2 URL to host file if it does not exist"
+#   become: yes
+#   become_user: root
+#   ansible.builtin.lineinfile:
+#     path: /etc/hosts
+#     line: "{{ server_ha_ip }} {{ server_ha_url[8:-5] }}"
+#     state: present     
+#     owner: root
+#     group: root
+#     mode: '0644'
+#     backup: yes
+#   register: example2out
+#   when: inventory_hostname in groups['kube_node']
+
+# https://github.com/k3s-io/k3s/issues/1395
+# server must be an ip address as agent won't resolve urls. 
+# other way is to host a DNS server or use host file
+- name: Create agent config file
+  become: true
+  shell: |
+          cat > /etc/rancher/rke2/config.yaml <<EOF
+          server: https://{{ hostvars['node1']['ansible_host'] }}:9345
+          token: {{ kube_control_node_token }}
+  when: inventory_hostname in groups['kube_node']
+#          server: https://{{ hostvars['node1']['ansible_host'] }}:9345
+
+- name: Download rke2 server
+  become: true
+  environment:
+    INSTALL_RKE2_CHANNEL: "{{ rke2_version }}"
+  shell: |
+          curl -sfL https://get.rke2.io | sh -
+  when: inventory_hostname in groups['kube_control_plane']
+  register: server_result
+
+- name: Download rke2 agent
+  become: true
+  environment:
+    INSTALL_RKE2_CHANNEL: "{{ rke2_version }}"
+  shell: |
+          curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE="agent" sh -
+  when: inventory_hostname in groups['kube_node']
+  register: server_result
+
+- name: Debug - Show server_result details
+  debug:
+    var: server_result
+
+- name: Install, enable, and start rke2 server
+  become: true
+  shell: |
+          systemctl enable rke2-server.service
+          systemctl start rke2-server.service
+  when: inventory_hostname in groups['kube_control_plane']
+
+- name: Wait for Kubernetes API Server to be ready
+  become: true
+  command: "kubectl get node"
+  environment:
+    KUBECONFIG: "/etc/rancher/rke2/rke2.yaml"
+    PATH: "/var/lib/rancher/rke2/bin:{{ ansible_env.PATH }}"
+  register: api_server
+  until: api_server.rc == 0
+  retries: 30  # Retry up to 30 times, customize as needed
+  delay: 2  # Delay 2 seconds between each attempt
+  delegate_to: "{{ groups['kube_control_plane'][0] }}"
+  when: groups['kube_control_plane'][0] == inventory_hostname
+
+- name: Debug - Show api_server details
+  debug:
+    var: api_server
+  when: groups['kube_control_plane'][0] == inventory_hostname
+
+# - name: Wait for first rke2 server node to finish
+#   pause:
+#     minutes: 1
+#   when: groups['kube_control_plane'][0] == inventory_hostname
+  
+- name: Install, enable, and start rke2 agent
+  become: true
+  shell: |
+          systemctl enable rke2-agent.service
+          systemctl start rke2-agent.service
+  when: inventory_hostname in groups['kube_node']
+
+- name: Export server node config to .profile
+  become: true
+  shell: |
+          echo 'export KUBECONFIG=/etc/rancher/rke2/rke2.yaml' >> ~/.profile
+          echo 'export PATH=$PATH:/var/lib/rancher/rke2/bin' >> ~/.profile
+  when: inventory_hostname in groups['kube_control_plane']

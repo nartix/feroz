@@ -48,11 +48,3 @@ jobs:
           bitnami/kubectl:latest create secret generic ecr-docker-login-token-from-action \
           --from-file=.dockerconfigjson=/.docker/config.json \
           --type=kubernetes.io/dockerconfigjson
-
-    # - name: Commit report
-    #   run: |
-    #     git config --global user.name 'nartix'
-    #     git config --global user.email 'nartix@gmail.com'
-    #     git add .
-    #     git commit -am "from github action"
-    #     git push

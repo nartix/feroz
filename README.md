@@ -26,7 +26,7 @@ Welcome to my portfolio project, showcased at [ferozfaiz.com](https://ferozfaz.c
 
    - This npm package I created is a port of @tiptap/extension-code-block-lowlight, but it's for highlighting inline codes in the TipTap editor. It uses Lowlight to highlight codes.
 
-5. [**ExpressJS**](https://github.com/nartix/feroz/tree/main/expressjs):
+5. [**ExpressJS**](https://github.com/nartix/expressjs-api):
 
    - This ExpressJS project is an API that ReactJS and Angular use to enable users to perform CRUD operations. A live version is available at [expressjs.ferozfaiz.com](https://expressjs.ferozfaiz.com)
 

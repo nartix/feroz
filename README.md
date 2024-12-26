@@ -8,7 +8,7 @@ Welcome to my portfolio project, showcased at [ferozfaiz.com](https://ferozfaz.c
 
 1. [**Spring Boot API**](https://github.com/nartix/spring-boot-api)
 
-   - I developed this Spring Boot API for use with a Next.js application that’s currently under development. The API relies on PostgreSQL as the primary database, is secured through OpenID Connect, and leverages Hashicorp Vault for secret management. The application is deployed on a self-managed Kubernetes cluster. A live version is available at [spring-boot-api.ferozfaiz.com](https://ferozfaiz.com)
+   - I developed this Spring Boot API for use with a Next.js application that’s currently under development. The API relies on PostgreSQL as the primary database, is secured through OpenID Connect, and leverages Hashicorp Vault for secret management. The application is deployed on a self-managed Kubernetes cluster. A live version is available at [spring-boot-api.ferozfaiz.com](https://spring-boot-api.ferozfaiz.com)
 
 1. [**Django**](https://github.com/nartix/django-blog)
 

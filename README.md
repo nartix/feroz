@@ -30,9 +30,9 @@ Welcome to my portfolio project, showcased at [ferozfaiz.com](https://ferozfaz.c
 
    - This ExpressJS project is an API that ReactJS and Angular use to enable users to perform CRUD operations. A live version is available at [expressjs.ferozfaiz.com](https://expressjs.ferozfaiz.com)
 
-6. [**Python And Django**](https://github.com/nartix/feroz/tree/main/python):
+6. [**Django Rest Framework API**](https://github.com/nartix/django-rest-framework):
 
-   - I also learned Django and developed an API backend with Django Rest Framework 3.14. This was designed to parallel the functionality of the existing ExpressJS API backend of ferozfaiz.com. A live version is available at [django-rest-framework.ferozfaiz.com](https://django-rest-framework.ferozfaiz.com)
+   - I also learned Django and developed an API backend with Django Rest Framework. This was designed to parallel the functionality of the existing ExpressJS API backend of ferozfaiz.com. A live version is available at [django-rest-framework.ferozfaiz.com](https://django-rest-framework.ferozfaiz.com)
 
 7. [**Ansible-Kubernetes**](https://github.com/nartix/feroz/tree/main/ansible-kubernetes):
 

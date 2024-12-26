@@ -1,4 +1,4 @@
-# Feroz's Portfolio Projects [ferozfaiz.com](https://ferozfaiz.com)
+# Feroz's Portfolio Projects - [ferozfaiz.com](https://ferozfaiz.com)
 
 ### Introduction
 

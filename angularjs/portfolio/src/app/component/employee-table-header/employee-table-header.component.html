@@ -1,9 +1,0 @@
-<span (click)="sort()" style="text-decoration: none; cursor: pointer">
-  <ng-container
-    *ngTemplateOutlet="sortByIcon; context: { sortOrderColumn: sortKey }"
-  ></ng-container>
-  {{ camelCaseSortKey }}
-</span>
-<ng-container
-  *ngTemplateOutlet="resetIcon; context: { sortByColumn: sortKey }"
-></ng-container>

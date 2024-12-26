@@ -18,7 +18,7 @@ Welcome to my portfolio project, showcased at [ferozfaiz.com](https://ferozfaz.c
 
    - This repository highlights my work with ReactJS 18.2 and Redux. This ReactJS project is a web application that allows users to create, read, update, delete, sort, and search data. A live version is available at [reactjs.ferozfaiz.com](https://reactjs.ferozfaiz.com)
 
-3. [**Angular**](https://github.com/nartix/feroz/tree/main/angularjs):
+3. [**Angular UI**](https://github.com/nartix/angular-ui):
 
    - This directory contains the developement codes of Angular 16.2, a structural framework for dynamic web apps. This Angular project is a web application that allows users to perform the same CRUD operations as the ReactJS app. A live version is available at [angular.ferozfaiz.com](https://angular.ferozfaiz.com)
 

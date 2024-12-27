@@ -34,9 +34,9 @@ Welcome to my portfolio project, showcased at [ferozfaiz.com](https://ferozfaz.c
 
    - I also learned Django and developed an API backend with Django Rest Framework. This was designed to parallel the functionality of the existing ExpressJS API backend of ferozfaiz.com. A live version is available at [django-rest-framework.ferozfaiz.com](https://django-rest-framework.ferozfaiz.com)
 
-7. [**Ansible-Kubernetes**](https://github.com/nartix/feroz/tree/main/ansible-kubernetes):
+7. [**Ansible Playbook**](https://github.com/nartix/ansible-playbook):
 
-   - This directory shows how I use Ansible for automation and orchestration, along with Kubernetes for container orchestration. I deployed the portfolio project website using the RKE2 kubernetes engine.
+   - I use Ansible for automation and orchestration, along with Kubernetes for container orchestration. I deployed my portfolio projects using the RKE2 kubernetes engine.
 
 8. [**HAProxy**](https://github.com/nartix/feroz/tree/main/haproxy):
 

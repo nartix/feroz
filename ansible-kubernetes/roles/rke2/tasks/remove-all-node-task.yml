@@ -1,6 +1,0 @@
-- name: Uninstall rke2
-  become: true
-  shell: "/usr/local/bin/rke2-uninstall.sh"
-  register: result
-
-- debug: var=result.stdout_lines

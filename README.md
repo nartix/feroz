@@ -10,7 +10,7 @@ Welcome to my portfolio project, showcased at [ferozfaiz.com](https://ferozfaz.c
 
    - I developed this Spring Boot API for use with a Next.js application that’s currently under development. The API relies on PostgreSQL as the primary database, is secured through OpenID Connect, and leverages Hashicorp Vault for secret management. The application is deployed on a self-managed Kubernetes cluster. A live version is available at [spring-boot-api.ferozfaiz.com](https://spring-boot-api.ferozfaiz.com)
 
-1. [**Django**](https://github.com/nartix/django-blog)
+1. [**Django Blog**](https://github.com/nartix/django-blog)
 
    - I developed ferozfaiz.com using Django, focusing on a fully server-side rendered architecture. To enhance interactivity and reactivity, I integrated HTMX and AlpineJS. Additionally, I implemented OAuth 2.0 authentication, supporting both Google and Microsoft. I used RabbitMQ/Celery to send emails. Kakfa was used to ship logs to ElasticSearch/Grafana. I also used Hashicorp Vault to store secrets. The application is deployed on Kubernetes. A live version is available at [ferozfaiz.com](https://ferozfaiz.com)
 

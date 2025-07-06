@@ -34,33 +34,37 @@ Welcome to my portfolio, showcased at [ferozfaiz.com](https://ferozfaz.com). It 
 
    - A lightweight CSRF protection middleware for Next.js on the Edge Runtime. It performs a **double check** on the CSRF token by comparing the token from the request body or headers with the token stored in the cookie.
 
-8. [**ExpressJS API**](https://github.com/nartix/expressjs-api):
+8. [**@nartix/edge-token**](https://www.npmjs.com/package/@nartix/edge-token) ([GitHub](https://github.com/nartix/edge-token)):
+
+   - A simple and secure token utility for generating and verifying tokens with optional data and timing. Edge Runtime compatible, making it ideal for use in serverless environments like Vercel Edge Functions, Cloudflare Workers, and other edge computing platforms.
+
+9. [**ExpressJS API**](https://github.com/nartix/expressjs-api):
 
    - This ExpressJS project is an API that ReactJS and Angular use to enable users to perform CRUD operations. A live version is available at [expressjs.ferozfaiz.com](https://expressjs.ferozfaiz.com)
 
-9. [**Django Rest Framework API**](https://github.com/nartix/django-rest-framework):
+10. [**Django Rest Framework API**](https://github.com/nartix/django-rest-framework):
 
-   - I also learned Django and developed an API backend with Django Rest Framework. This was designed to parallel the functionality of the existing ExpressJS API backend of ferozfaiz.com. A live version is available at [django-rest-framework.ferozfaiz.com](https://django-rest-framework.ferozfaiz.com)
+    - I also learned Django and developed an API backend with Django Rest Framework. This was designed to parallel the functionality of the existing ExpressJS API backend of ferozfaiz.com. A live version is available at [django-rest-framework.ferozfaiz.com](https://django-rest-framework.ferozfaiz.com)
 
-10. [**Ansible Playbook**](https://github.com/nartix/ansible-playbook):
+11. [**Ansible Playbook**](https://github.com/nartix/ansible-playbook):
 
     - I use Ansible for automation and orchestration, along with Kubernetes for container orchestration. I deployed my portfolio projects using the RKE2 kubernetes engine.
 
-11. [**HAProxy**](https://github.com/nartix/feroz/tree/main/haproxy):
+12. [**HAProxy**](https://github.com/nartix/feroz/tree/main/haproxy):
 
     - This section is dedicated to HAProxy, a high-availability load balancer and proxy server for TCP and HTTP applications. I used HAProxy to load balance traffic between Kubernetes nodes.
 
-12. [**Kubernetes**](https://github.com/nartix/feroz/tree/main/kubernetes):
+13. [**Kubernetes**](https://github.com/nartix/feroz/tree/main/kubernetes):
 
     - Within this directory, you'll find the Kubernetes deployment manifests that I utilized for deploying ferozfaiz.com.
 
-13. [**Shell-PostgreSQL-Docker**](https://github.com/nartix/feroz/tree/main/shell-postgresql-docker):
+14. [**Shell-PostgreSQL-Docker**](https://github.com/nartix/feroz/tree/main/shell-postgresql-docker):
 
     - This section features shell scripts I developed for backing up and restoring a PostgreSQL cluster from an AWS S3 bucket
 
-14. [**Github Actions**](https://github.com/nartix/feroz/tree/main/.github/workflows):
+15. [**Github Actions**](https://github.com/nartix/feroz/tree/main/.github/workflows):
 
     - I've utilized GitHub Actions to streamline the automation of my deployment containers' build process, as well as the subsequent pushing of the built containers to AWS ECR
 
-15. Development
+16. Development
     - For my portfolio projects, I employed Docker containers in conjunction with Docker Compose for development and testing. Utilizing Docker containers simplifies the process of experimenting with various technology versions seamlessly. Additionally, I leveraged Git for efficient version control
